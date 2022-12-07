@@ -2,7 +2,7 @@
 using Twitch.Common.Models;
 using Twitch.Common.Models.Api;
 
-namespace WigglyParade
+namespace CPHNameSpace
 {
     /************************************************************************
      * DO NOT USE - PLACEHOLDER CLASS

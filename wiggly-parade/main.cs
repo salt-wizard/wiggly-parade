@@ -1,4 +1,13 @@
-﻿using System;
+﻿#pragma warning disable CA1822, CA1050
+using CPHNameSpace;                // Mimic CPH for method references
+using static CPHNameSpace.CPHArgs; // Mimic arguments for inline CPH
+
+
+/************************************************************************
+* COPY AND PASTE BELOW CLASS INTO STREAMER.BOT 
+* DO NOT COPY ANYTHING OUTSIDE THE BLOCK COMMENT
+************************************************************************/
+using System;
 using System.IO;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -9,56 +18,50 @@ using System.Collections.Generic;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Twitch.Common.Models;
-using Streamer.bot.Common.Events;
 
-namespace WigglyParade
+public class CPHInline
 {
-#pragma warning disable CA1822
-    /************************************************************************
-     * COPY AND PASTE BELOW CLASS INTO STREAMER.BOT 
-     ************************************************************************/
-    public class CPHInline {
-        public void Init()
-        {
-            // place your init code here
-        }
 
-        public void Dispose()
-        {
-            // place your dispose code here
-        }
-
-        public bool Execute()
-        {
-            //foreach (var arg in args)
-            //{
-            //    CPH.LogInfo($"LogVars :: {arg.Key} = {arg.Value}");
-            //    if ((arg.Key).Equals("emotes"))
-            //    {
-            //        List<Emote> emoteList = (List<Emote>)arg.Value;
-            //        List<Emote> newEmoteList = new List<Emote>();
-
-            //        emoteList.ForEach(delegate (Emote emote)
-            //        {
-
-            //            newEmoteList.Add(emote);
-            //        });
-
-            //        CPH.SetGlobalVar("wigglyList", newEmoteList, true);
-            //    }
-            //}
-
-            return true;
-        }
-
-        public string ObjToString(object obj)
-        {
-            return JsonConvert.SerializeObject(obj, Formatting.Indented, new JsonConverter[] { new StringEnumConverter() });
-        }
+    public void Init()
+    {
+        // place your init code here
     }
 
-    /************************************************************************
-     * END OF INLINE SOLUTION
-     ************************************************************************/
-#pragma warning restore CA1822
+    public void Dispose()
+    {
+        // place your dispose code here
+    }
+
+    public bool Execute()
+    {
+        foreach (var arg in args)
+        {
+            CPH.LogInfo($"LogVars :: {arg.Key} = {arg.Value}");
+            if ((arg.Key).Equals("emotes"))
+            {
+                List<Emote> emoteList = (List<Emote>)arg.Value;
+                List<Emote> newEmoteList = new();
+
+                emoteList.ForEach(delegate (Emote emote)
+                {
+
+                    newEmoteList.Add(emote);
+                });
+
+                CPH.SetGlobalVar("wigglyList", newEmoteList, true);
+            }
+        }
+
+        return true;
+    }
+
+    public string ObjToString(object obj)
+    {
+        return JsonConvert.SerializeObject(obj, Formatting.Indented, new JsonConverter[] { new StringEnumConverter() });
+    }
 }
+/************************************************************************
+* COPY AND PASTE ABOVE CLASS INTO STREAMER.BOT
+* DO NOT COPY ANYTHING OUTSIDE THE BLOCK COMMENT
+************************************************************************/
+#pragma warning restore CA1822, CA1050
