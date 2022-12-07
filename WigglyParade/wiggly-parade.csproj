@@ -1,0 +1,186 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="AudioDevices">
+      <HintPath>..\dll\AudioDevices.dll</HintPath>
+    </Reference>
+    <Reference Include="AudioPlayback">
+      <HintPath>..\dll\AudioPlayback.dll</HintPath>
+    </Reference>
+    <Reference Include="Common">
+      <HintPath>..\dll\Common.dll</HintPath>
+    </Reference>
+    <Reference Include="DonorDrive">
+      <HintPath>..\dll\DonorDrive.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis">
+      <HintPath>..\dll\Google.Apis.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Auth">
+      <HintPath>..\dll\Google.Apis.Auth.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Auth.PlatformServices">
+      <HintPath>..\dll\Google.Apis.Auth.PlatformServices.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Core">
+      <HintPath>..\dll\Google.Apis.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.PlatformServices">
+      <HintPath>..\dll\Google.Apis.PlatformServices.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.YouTube.v3">
+      <HintPath>..\dll\Google.Apis.YouTube.v3.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.YouTubePartner.v1">
+      <HintPath>..\dll\Google.Apis.YouTubePartner.v1.dll</HintPath>
+    </Reference>
+    <Reference Include="LumiaSdk">
+      <HintPath>..\dll\LumiaSdk.dll</HintPath>
+    </Reference>
+    <Reference Include="MathParser.org-mXparser">
+      <HintPath>..\dll\MathParser.org-mXparser.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces">
+      <HintPath>..\dll\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeAnalysis">
+      <HintPath>..\dll\Microsoft.CodeAnalysis.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeAnalysis.CSharp">
+      <HintPath>..\dll\Microsoft.CodeAnalysis.CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection">
+      <HintPath>..\dll\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions">
+      <HintPath>..\dll\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Cecil">
+      <HintPath>..\dll\Mono.Cecil.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Cecil.Mdb">
+      <HintPath>..\dll\Mono.Cecil.Mdb.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Cecil.Pdb">
+      <HintPath>..\dll\Mono.Cecil.Pdb.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Cecil.Rocks">
+      <HintPath>..\dll\Mono.Cecil.Rocks.dll</HintPath>
+    </Reference>
+    <Reference Include="NAudio">
+      <HintPath>..\dll\NAudio.dll</HintPath>
+    </Reference>
+    <Reference Include="NAudio.Asio">
+      <HintPath>..\dll\NAudio.Asio.dll</HintPath>
+    </Reference>
+    <Reference Include="NAudio.Core">
+      <HintPath>..\dll\NAudio.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="NAudio.Midi">
+      <HintPath>..\dll\NAudio.Midi.dll</HintPath>
+    </Reference>
+    <Reference Include="NAudio.Vorbis">
+      <HintPath>..\dll\NAudio.Vorbis.dll</HintPath>
+    </Reference>
+    <Reference Include="NAudio.Wasapi">
+      <HintPath>..\dll\NAudio.Wasapi.dll</HintPath>
+    </Reference>
+    <Reference Include="NAudio.WinForms">
+      <HintPath>..\dll\NAudio.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="NAudio.WinMM">
+      <HintPath>..\dll\NAudio.WinMM.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\dll\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NVorbis">
+      <HintPath>..\dll\NVorbis.dll</HintPath>
+    </Reference>
+    <Reference Include="ObjectListView">
+      <HintPath>..\dll\ObjectListView.dll</HintPath>
+    </Reference>
+    <Reference Include="ObsWebsocket">
+      <HintPath>..\dll\ObsWebsocket.dll</HintPath>
+    </Reference>
+    <Reference Include="ScintillaNET">
+      <HintPath>..\dll\ScintillaNET.dll</HintPath>
+    </Reference>
+    <Reference Include="Semver">
+      <HintPath>..\dll\Semver.dll</HintPath>
+    </Reference>
+    <Reference Include="Serilog">
+      <HintPath>..\dll\Serilog.dll</HintPath>
+    </Reference>
+    <Reference Include="Serilog.Sinks.File">
+      <HintPath>..\dll\Serilog.Sinks.File.dll</HintPath>
+    </Reference>
+    <Reference Include="SlobsWebsocket">
+      <HintPath>..\dll\SlobsWebsocket.dll</HintPath>
+    </Reference>
+    <Reference Include="Speech">
+      <HintPath>..\dll\Speech.dll</HintPath>
+    </Reference>
+    <Reference Include="StreamElements">
+      <HintPath>..\dll\StreamElements.dll</HintPath>
+    </Reference>
+    <Reference Include="Streamer.bot.Auth">
+      <HintPath>..\dll\Streamer.bot.Auth.dll</HintPath>
+    </Reference>
+    <Reference Include="Streamer.bot.Common">
+      <HintPath>..\dll\Streamer.bot.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Streamer.bot.HypeRate">
+      <HintPath>..\dll\Streamer.bot.HypeRate.dll</HintPath>
+    </Reference>
+    <Reference Include="Streamer.bot.Plugin.Interface">
+      <HintPath>..\dll\Streamer.bot.Plugin.Interface.dll</HintPath>
+    </Reference>
+    <Reference Include="Streamer.bot.PolyPop">
+      <HintPath>..\dll\Streamer.bot.PolyPop.dll</HintPath>
+    </Reference>
+    <Reference Include="Streamer.bot.Pulsoid">
+      <HintPath>..\dll\Streamer.bot.Pulsoid.dll</HintPath>
+    </Reference>
+    <Reference Include="Streamer.bot.TipeeeStream">
+      <HintPath>..\dll\Streamer.bot.TipeeeStream.dll</HintPath>
+    </Reference>
+    <Reference Include="Streamer.bot.TreatStream">
+      <HintPath>..\dll\Streamer.bot.TreatStream.dll</HintPath>
+    </Reference>
+    <Reference Include="Streamer.bot.Website">
+      <HintPath>..\dll\Streamer.bot.Website.dll</HintPath>
+    </Reference>
+    <Reference Include="StreamLabs">
+      <HintPath>..\dll\StreamLabs.dll</HintPath>
+    </Reference>
+    <Reference Include="Twitch.ChatClient">
+      <HintPath>..\dll\Twitch.ChatClient.dll</HintPath>
+    </Reference>
+    <Reference Include="Twitch.ClientApi">
+      <HintPath>..\dll\Twitch.ClientApi.dll</HintPath>
+    </Reference>
+    <Reference Include="Twitch.Common">
+      <HintPath>..\dll\Twitch.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Twitch.PubSub">
+      <HintPath>..\dll\Twitch.PubSub.dll</HintPath>
+    </Reference>
+    <Reference Include="VoiceMod.Client">
+      <HintPath>..\dll\VoiceMod.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="websocket-sharp">
+      <HintPath>..\dll\websocket-sharp.dll</HintPath>
+    </Reference>
+    <Reference Include="YouTube.Client">
+      <HintPath>..\dll\YouTube.Client.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
