@@ -15,6 +15,8 @@ using System.Text.RegularExpressions;
 using System.Text;
 using System.Threading;
 using System.Collections.Generic;
+using System.Linq;
+using System.Runtime;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Twitch.Common.Models;
@@ -24,7 +26,13 @@ public class CPHInline
 
     public void Init()
     {
-        // place your init code here
+        CPH.LogDebug("================= BEGIN Init() =================");
+        
+        // Create a blank emote list and time of initialize
+        CPH.SetGlobalVar("wigglyList", new List<Emote>(), true);
+        CPH.SetGlobalVar("paradeResetSeconds", DateTime.Now, true);
+
+        CPH.LogDebug("================= END Init() =================");
     }
 
     public void Dispose()
@@ -34,24 +42,78 @@ public class CPHInline
 
     public bool Execute()
     {
+        CPH.LogDebug("================= BEGIN Execute() =================");
+        /*
+        // Print each argument being provided
         foreach (var arg in args)
         {
-            CPH.LogInfo($"LogVars :: {arg.Key} = {arg.Value}");
-            if ((arg.Key).Equals("emotes"))
+            CPH.LogVerbose($"LogVars :: {arg.Key} = {arg.Value}");
+        }
+        */
+
+        // Get the comma separated string and put it into a list
+        List<string> wigglyList = ((string)args["allowedWigglies"]).Split(',').ToList();
+        int i = 0;
+        CPH.LogDebug("Allowed Wigglies...");
+        wigglyList.ForEach(wiggly => CPH.LogDebug($"{i++} :: {wiggly}"));
+
+        // Pull back the list of emotes used in the message
+        List<Emote> emoteList = (List<Emote>)args["emotes"];
+
+        // Go through each emote and validate it is a wiggly
+        // Wiggly emotes are put into another list
+        List<Emote> newEmoteList = new();
+        emoteList.ForEach(delegate (Emote emote)
+        {
+            CPH.LogVerbose($"Evaluating emote {emote.Name}");
+            if (wigglyList.Contains(emote.Name))
             {
-                List<Emote> emoteList = (List<Emote>)arg.Value;
-                List<Emote> newEmoteList = new();
-
-                emoteList.ForEach(delegate (Emote emote)
-                {
-
-                    newEmoteList.Add(emote);
-                });
-
-                CPH.SetGlobalVar("wigglyList", newEmoteList, true);
+                CPH.LogVerbose($"Adding emote {emote.Name}...");
+                newEmoteList.Add((Emote)emote);
             }
+        });
+
+        // Pull back global list
+        CPH.LogDebug("Pulling back global list...");
+        List<Emote>? globalList = CPH.GetGlobalVar<List<Emote>>("wigglyList", true);
+        CPH.LogDebug("Returned list");
+
+        // Add emotes to global list
+        globalList.AddRange(newEmoteList);
+        CPH.LogDebug("Updated Emote List:");
+        globalList.ForEach(emote => CPH.LogDebug($"{emote.Name}"));
+        
+        // Set global list
+        CPH.SetGlobalVar("wigglyList", globalList, true);
+
+        // Get elapsed time between emotes being put in
+        TimeSpan interval = (DateTime.Now) - (CPH.GetGlobalVar<DateTime>("paradeResetSeconds", true));
+        CPH.LogDebug($"Elapsed time :: {interval.TotalSeconds}");
+        if (interval.TotalSeconds >= (Int64)args["paradeResetSeconds"])
+        {
+            // Reset global list + time
+            CPH.LogDebug($"Exceeded limit of {(Int64)args["paradeResetSeconds"]} seconds. Resetting timer.");
+            CPH.SetGlobalVar("paradeResetSeconds", DateTime.Now, true);
+            CPH.SetGlobalVar("wigglyList", new List<Emote>(), true);
         }
 
+        // If the list is greater than the maximum wiggly.....release it
+        if (globalList.Count >= (Int64)args["wigglyThreshold"])
+        {
+            CPH.LogDebug("Wiggly threshold reached!!!");
+
+            /**
+             * 
+             * TODO - INSERT WIGGLY PARADE CODE HERE!!!
+             * 
+             **/
+
+
+            // Reset global list 
+            CPH.SetGlobalVar("wigglyList", new List<Emote>(), true);
+        }
+
+        CPH.LogDebug("================= END Execute() =================");
         return true;
     }
 
