@@ -1,16 +1,15 @@
 {
   "files": {
-    "main.css": "/wiggly-parade/static/css/main.8d02840f.css",
-    "main.js": "/wiggly-parade/static/js/main.ed7d1d3b.js",
+    "main.css": "/wiggly-parade/static/css/main.86170182.css",
+    "main.js": "/wiggly-parade/static/js/main.09affcee.js",
     "static/js/787.9b71a7f5.chunk.js": "/wiggly-parade/static/js/787.9b71a7f5.chunk.js",
-    "static/media/logo.svg": "/wiggly-parade/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/wiggly-parade/index.html",
-    "main.8d02840f.css.map": "/wiggly-parade/static/css/main.8d02840f.css.map",
-    "main.ed7d1d3b.js.map": "/wiggly-parade/static/js/main.ed7d1d3b.js.map",
+    "main.86170182.css.map": "/wiggly-parade/static/css/main.86170182.css.map",
+    "main.09affcee.js.map": "/wiggly-parade/static/js/main.09affcee.js.map",
     "787.9b71a7f5.chunk.js.map": "/wiggly-parade/static/js/787.9b71a7f5.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.8d02840f.css",
-    "static/js/main.ed7d1d3b.js"
+    "static/css/main.86170182.css",
+    "static/js/main.09affcee.js"
   ]
 }
