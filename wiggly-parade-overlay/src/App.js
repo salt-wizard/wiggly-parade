@@ -1,23 +1,33 @@
-import logo from './logo.svg';
+import React, { useState, useCallback, useEffect } from 'react';
+import EXT_CONFIG from './extConfig'
 import './App.css';
 
-function App() {
+const App = () => {
+
+  var wigglies = EXT_CONFIG.emotes;
+
+  const parade = {
+    backgroundColor: "rgba(0, 0, 0, 0)",
+    display: "flex",
+    flexDirection: "row",
+    position: "fixed",
+    bottom: 0,
+    width: "100%",
+    animation: "infinite",
+    animationName: "parade",
+    animationDuration: EXT_CONFIG.duration,
+    animationDelay: EXT_CONFIG.delay,
+    animationTimingFunction: "linear",
+  }
+  
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="overflow">
+      <div className="Parade" style={parade}>
+          {wigglies.map((wiggly, i) => {
+            return (<img src={wiggly.imageUrl} key={wiggly.id + i} />)
+          })}
+      </div>
     </div>
   );
 }
