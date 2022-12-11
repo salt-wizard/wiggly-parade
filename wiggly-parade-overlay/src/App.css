@@ -1,12 +1,4 @@
 .overflow {
-  overflow:hidden
-}
-
-@keyframes parade {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(-1000%);
-  }
+  overflow:hidden;
+  width: 100%;
 }
